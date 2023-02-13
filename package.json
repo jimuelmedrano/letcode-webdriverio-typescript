@@ -1,5 +1,5 @@
 {
-  "name": "my-new-project",
+  "name": "letcode-wdio-cucumber-ts",
   "type": "module",
   "devDependencies": {
     "@wdio/cli": "^8.3.5",
@@ -7,12 +7,16 @@
     "@wdio/local-runner": "^8.3.5",
     "@wdio/spec-reporter": "^8.3.0",
     "chromedriver": "^109.0.0",
+    "env-cmd": "^10.1.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5",
     "wdio-chromedriver-service": "^8.0.1",
     "wdio-wait-for": "^3.0.2"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.ts"
+    "wdio": "wdio run ./wdio.conf.ts",
+    "envtest": "env-cmd wdio run ./wdio.conf.ts",
+    "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
+    "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }
 }
