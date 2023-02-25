@@ -13,7 +13,6 @@ class InputFullName extends Page {
     }
 
     async verifyFullName(firstName,lastName){
-        await browser.pause(5000);
         const elmFullNameInput = await this.fullNameInput;
         let fullName = firstName + ' ' + lastName;
         const elmText = await this.getInputValue(elmFullNameInput);
