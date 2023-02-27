@@ -34,3 +34,15 @@ Feature: Letcode Input Page
         Examples:
             | text     |
             | ortonikc |
+
+    @input
+    Scenario Outline: As a user, I can clear the text inside the input field
+
+        Given I am on letcode workspace page
+        When I click input edit button
+        And I clear the text of the fourth input field
+        Then The fourth input field text should be blank after clearing the value
+
+        Examples:
+            | text     |
+            | ortonikc |

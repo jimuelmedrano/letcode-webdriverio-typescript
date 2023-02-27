@@ -6,6 +6,7 @@ class InputFullName extends Page {
     get fullNameInput(){ return $(`//input[@id='fullName']`) };
     get appendTextInput(){ return $(`//input[@id='join']`) };
     get getValueTextInput(){ return $(`//input[@id='getMe']`) };
+    get clearValueTextInput(){ return $(`//input[@id='clearMe']`) };
 
     //1. Input Full Name Scenario
     async inputFullName (firstName,lastName) {
@@ -36,10 +37,21 @@ class InputFullName extends Page {
         await expect(elmFullNameInput).toHaveValueContaining(append);
     }
 
-    //3. Verify text inside input
+    //3. Verify Value Scenario
     async verifyInputText(text){
         const elmGetValueTextInput = await this.getValueTextInput;
         await expect(elmGetValueTextInput).toHaveValue(text);
+    }
+
+//4. Clear Value Scenario
+    async clearTextInput(){
+        const elmClearValueTextInput = await this.clearValueTextInput;
+        await elmClearValueTextInput.clearValue();
+    }
+
+    async verifyClearTextValue(){
+        const elmClearValueTextInput = await this.clearValueTextInput;
+        await expect(elmClearValueTextInput).toHaveValue('');
     }
 }
 

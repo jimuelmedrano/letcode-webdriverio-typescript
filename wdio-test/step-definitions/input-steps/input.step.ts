@@ -19,7 +19,17 @@ Then(/^The second input field text should include the appended text: `(.*)`$/, a
 	await InputFullNamePage.verifyNewText(append);
 });
 
-//3. Get Value Scenario
+//3. Verify Value Scenario
 Then(/^The third input field text should include the text: `(.*)`$/, async (text) => {
 	await InputFullNamePage.verifyInputText(text);
 });
+
+//4. Clear Value Scenario
+When(/^I clear the text of the fourth input field$/, async () => {
+	await InputFullNamePage.clearTextInput();
+});
+
+Then(/^The fourth input field text should be blank after clearing the value$/, async () => {
+	await InputFullNamePage.verifyClearTextValue();
+});
+
