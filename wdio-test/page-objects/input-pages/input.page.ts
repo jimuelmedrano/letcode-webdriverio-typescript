@@ -8,6 +8,7 @@ class InputFullName extends Page {
     get getValueTextInput(){ return $(`//input[@id='getMe']`) };
     get clearValueTextInput(){ return $(`//input[@id='clearMe']`) };
     get disabledTextInput(){ return $(`//input[@id='noEdit']`) };
+    get readOnlyTextInput(){ return $(`//input[@id='dontwrite']`) };
 
     //1. Input Full Name Scenario
     async inputFullName (firstName,lastName) {
@@ -60,6 +61,13 @@ class InputFullName extends Page {
         const elmDisabledTextInput = await this.disabledTextInput;
         await expect(elmDisabledTextInput).toBeDisabled();
         //same as: await expect(elem).not.toBeEnabled()
+    }
+
+    //6. Read Only Input Scenario
+    async verifyReadOnlyInput(){
+        const elmReadOnlyTextInput = await this.readOnlyTextInput;
+        const readOnlyStatus = await elmReadOnlyTextInput.getAttribute('readonly')
+        await expect(readOnlyStatus).toEqual('true');
     }
 
 }

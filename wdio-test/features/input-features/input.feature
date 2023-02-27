@@ -57,3 +57,14 @@ Feature: Letcode Input Page
         Examples:
             ||
             ||
+
+    @input
+    Scenario Outline: As a user, I can verify that the input field is read only
+
+        Given I am on letcode workspace page
+        When I click input edit button
+        Then The sixth input field text should be read only
+
+        Examples:
+            ||
+            ||

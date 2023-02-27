@@ -38,4 +38,10 @@ Then(/^The fifth input field text should be disabled$/, async () => {
 	await InputFullNamePage.verifyDisabledInput();
 });
 
+//6. Read Only Input Scenario
+Then(/^The sixth input field text should be read only$/, async () => {
+	await InputFullNamePage.verifyReadOnlyInput();
+});
+
+
 
