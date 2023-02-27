@@ -10,7 +10,8 @@ export default class Page {
     elmTimeout = process.env.ELM_TIMEOUT;
     
     async open (path: string) {
-        await browser.url(process.env.BASE_URL+path)
+        await browser.url(process.env.BASE_URL+path);
+        await browser.maximizeWindow();
     }
 
     async click(element: WebdriverIO.Element){
