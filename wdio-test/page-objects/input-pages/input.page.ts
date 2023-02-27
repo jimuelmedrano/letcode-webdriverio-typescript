@@ -7,6 +7,7 @@ class InputFullName extends Page {
     get appendTextInput(){ return $(`//input[@id='join']`) };
     get getValueTextInput(){ return $(`//input[@id='getMe']`) };
     get clearValueTextInput(){ return $(`//input[@id='clearMe']`) };
+    get disabledTextInput(){ return $(`//input[@id='noEdit']`) };
 
     //1. Input Full Name Scenario
     async inputFullName (firstName,lastName) {
@@ -43,7 +44,7 @@ class InputFullName extends Page {
         await expect(elmGetValueTextInput).toHaveValue(text);
     }
 
-//4. Clear Value Scenario
+    //4. Clear Value Scenario
     async clearTextInput(){
         const elmClearValueTextInput = await this.clearValueTextInput;
         await elmClearValueTextInput.clearValue();
@@ -53,6 +54,14 @@ class InputFullName extends Page {
         const elmClearValueTextInput = await this.clearValueTextInput;
         await expect(elmClearValueTextInput).toHaveValue('');
     }
+    
+    //5. Disabled Input Scenario
+    async verifyDisabledInput(){
+        const elmDisabledTextInput = await this.disabledTextInput;
+        await expect(elmDisabledTextInput).toBeDisabled();
+        //same as: await expect(elem).not.toBeEnabled()
+    }
+
 }
 
 export default new InputFullName();

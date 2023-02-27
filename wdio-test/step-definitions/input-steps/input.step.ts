@@ -33,3 +33,9 @@ Then(/^The fourth input field text should be blank after clearing the value$/, a
 	await InputFullNamePage.verifyClearTextValue();
 });
 
+//5. Disabled Input Scenario
+Then(/^The fifth input field text should be disabled$/, async () => {
+	await InputFullNamePage.verifyDisabledInput();
+});
+
+

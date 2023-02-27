@@ -44,5 +44,16 @@ Feature: Letcode Input Page
         Then The fourth input field text should be blank after clearing the value
 
         Examples:
-            | text     |
-            | ortonikc |
+            ||
+            ||
+
+    @input
+    Scenario Outline: As a user, I can verify that the input field is disabled
+
+        Given I am on letcode workspace page
+        When I click input edit button
+        Then The fifth input field text should be disabled
+
+        Examples:
+            ||
+            ||
