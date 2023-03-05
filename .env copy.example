@@ -1,0 +1,5 @@
+# Environment Variables
+BASE_URL=example
+ELM_TIMEOUT=example
+TEST_USERNAME=example
+TEST_PASSWORD=example
