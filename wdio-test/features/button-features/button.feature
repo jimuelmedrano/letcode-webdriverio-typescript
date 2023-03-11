@@ -13,3 +13,13 @@ Feature: Letcode Button Page
             ||
             ||
 
+    @button
+    Scenario Outline: As a user, I can get the coordinates of the button
+
+        Given I am on letcode workspace page
+        When I click button page
+        Then I should be able to get the coordinates of the second button
+
+        Examples:
+            ||
+            ||

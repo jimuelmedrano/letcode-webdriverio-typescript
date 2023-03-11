@@ -14,6 +14,6 @@ Then(/^I should be inside the button page$/, async () => {
 });
 
 Then(/^I should be able to get the coordinates of the second button$/, async () => {
-	return true;
+	await ButtonPage.getButtonCoordinates();
 });
 
