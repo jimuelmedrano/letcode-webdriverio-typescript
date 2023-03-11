@@ -39,4 +39,11 @@ export default class Page {
         const text = await element.getValue();
         return text;
     }
+
+    async verifyElement(element: WebdriverIO.Element){
+        //wait for the element to be clickable before interacting
+        await element.waitForExist({timeout: parseInt(this.elmTimeout)});
+        await element.waitForDisplayed({timeout: parseInt(this.elmTimeout)});
+        await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
+    }
 }
