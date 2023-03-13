@@ -34,3 +34,14 @@ Feature: Letcode Button Page
         Examples:
             ||
             ||
+
+    @button
+    Scenario Outline: As a user, I can get the size of the button
+
+        Given I am on letcode workspace page
+        When I click button page
+        Then I should be able to get the size of the fourth button
+
+        Examples:
+            ||
+            ||

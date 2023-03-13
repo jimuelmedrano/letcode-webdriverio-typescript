@@ -24,4 +24,10 @@ Then(/^I should be able to get the color of the third button$/, async () => {
 	await ButtonPage.getButtonColor();
 });
 
+//4. Get Size of Button
+Then(/^I should be able to get the size of the fourth button$/, async() => {
+	await ButtonPage.getButtonSize();
+});
+
+
 
