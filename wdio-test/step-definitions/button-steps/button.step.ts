@@ -29,5 +29,11 @@ Then(/^I should be able to get the size of the fourth button$/, async() => {
 	await ButtonPage.getButtonSize();
 });
 
+//5. Check button if disabled
+Then(/^I should be able to verify if the fifth button is disabled$/, async () => {
+	await ButtonPage.checkDisabled();
+});
+
+
 
 

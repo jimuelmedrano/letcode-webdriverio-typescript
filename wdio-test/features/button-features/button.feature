@@ -45,3 +45,14 @@ Feature: Letcode Button Page
         Examples:
             ||
             ||
+
+    @button
+    Scenario Outline: As a user, I can verify if the button is disabled
+
+        Given I am on letcode workspace page
+        When I click button page
+        Then I should be able to verify if the fifth button is disabled
+
+        Examples:
+            ||
+            ||
