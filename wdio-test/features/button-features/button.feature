@@ -56,3 +56,14 @@ Feature: Letcode Button Page
         Examples:
             ||
             ||
+
+    @button
+    Scenario Outline: As a user, I can click and hold the button
+
+        Given I am on letcode workspace page
+        When I click button page
+        Then I can click and hold the sixth button for 3 seconds
+
+        Examples:
+            ||
+            ||

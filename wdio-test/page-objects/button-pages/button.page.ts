@@ -8,6 +8,7 @@ class ButtonPage extends Page {
     get colorButton(){ return $(`//button[@id='color']`) };
     get sizeButton(){ return $(`//button[@id='property']`) };
     get disabledButton(){ return $(`//button[@id='isDisabled']`) };
+    get holdButton(){ return $(`//h2//ancestor::button`) };
    
     //1. Click Home Button
     async clickHomeButton () {
@@ -45,6 +46,12 @@ class ButtonPage extends Page {
     async checkDisabled () {
         const elmDisabledButton = await this.disabledButton;
         await expect(elmDisabledButton).toBeDisabled();
+    }
+
+    //6. Click and hold button
+    async clickHoldButton () {
+        const elmHoldButton = await this.holdButton;
+        await this.clickAndHold(elmHoldButton,3000);
     }
 
 }

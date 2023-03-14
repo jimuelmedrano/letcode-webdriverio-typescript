@@ -34,6 +34,12 @@ Then(/^I should be able to verify if the fifth button is disabled$/, async () =>
 	await ButtonPage.checkDisabled();
 });
 
+//6. Click and Hold Button
+Then(/^I can click and hold the sixth button for 3 seconds$/, async () => {
+	await ButtonPage.clickHoldButton();
+});
+
+
 
 
 
