@@ -20,6 +20,18 @@ export default class Page {
         await element.click();
     }
 
+    async clickAndHold(element: WebdriverIO.Element,duration: number){
+        //wait for the element to be clickable before interacting
+        await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
+        //use browser action to point the mouse to element, click and hold
+        await browser.action('pointer')
+        .move({ duration: 0, origin:element })
+        .down({ button: 0 }) // left button
+        .pause(duration)
+        .up({ button: 0 })
+        .perform()
+    }
+
     async inputText(element: WebdriverIO.Element, text: string){
         //wait for the element to be clickable before interacting
         await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
@@ -38,5 +50,12 @@ export default class Page {
         await element.waitForDisplayed({timeout: parseInt(this.elmTimeout)});
         const text = await element.getValue();
         return text;
+    }
+
+    async verifyElement(element: WebdriverIO.Element){
+        //wait for the element to be clickable before interacting
+        await element.waitForExist({timeout: parseInt(this.elmTimeout)});
+        await element.waitForDisplayed({timeout: parseInt(this.elmTimeout)});
+        await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
     }
 }
