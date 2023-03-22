@@ -18,6 +18,7 @@
     "envtest": "env-cmd wdio run ./wdio.conf.ts",
     "input": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@input'",
     "button": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@button'",
+    "dropdown": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dropdown'",
     "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
     "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }
