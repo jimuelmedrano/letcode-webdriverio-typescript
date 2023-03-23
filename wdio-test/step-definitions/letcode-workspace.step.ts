@@ -12,3 +12,7 @@ When(/^I click input edit button$/, async () => {
 When(/^I click button page$/, async () => {
 	await LetcodeWorkspacePage.clickButtonPage();
 });
+
+When(/^I click dropdown page$/, async () => {
+	await LetcodeWorkspacePage.clickDropdownPage();
+});

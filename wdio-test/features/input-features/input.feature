@@ -1,6 +1,6 @@
 Feature: Letcode Input Page
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can input full name in the text field
 
         Given I am on letcode workspace page
@@ -12,7 +12,7 @@ Feature: Letcode Input Page
             | firstName    | lastName |
             | Jimuel Renzo | Medrano  |
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can append text in the field and press tab
 
         Given I am on letcode workspace page
@@ -24,7 +24,7 @@ Feature: Letcode Input Page
             | append        |
             | at automation |
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can verify the text inside the input field
 
         Given I am on letcode workspace page
@@ -35,7 +35,7 @@ Feature: Letcode Input Page
             | text     |
             | ortonikc |
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can clear the text inside the input field
 
         Given I am on letcode workspace page
@@ -47,7 +47,7 @@ Feature: Letcode Input Page
             ||
             ||
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can verify that the input field is disabled
 
         Given I am on letcode workspace page
@@ -58,7 +58,7 @@ Feature: Letcode Input Page
             ||
             ||
 
-    @input
+    @regression @input
     Scenario Outline: As a user, I can verify that the input field is read only
 
         Given I am on letcode workspace page
