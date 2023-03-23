@@ -36,3 +36,14 @@ Feature: Letcode Dropdown Page
         Examples:
             | option |
             | C#     |
+
+    @regression @dropdown
+    Scenario Outline: As a user, I can select using value
+
+        Given I am on letcode workspace page
+        When I click dropdown page
+        Then I should be able to select option of last dropdown using value: <value>
+
+        Examples:
+            | value |
+            | India |

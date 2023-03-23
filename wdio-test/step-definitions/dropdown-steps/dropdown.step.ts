@@ -28,3 +28,7 @@ Then(/^I should be able to verify that the selected programming language option 
 	await DropdownPage.verifySelectedMessage2(option);
 });
 
+//4. Select Using Value
+Then(/^I should be able to select option of last dropdown using value: (.*)$/, async (value) => {
+	await DropdownPage.selectByValue(value);
+});

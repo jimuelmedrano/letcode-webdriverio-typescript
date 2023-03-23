@@ -9,6 +9,7 @@ class DropdownPage extends Page {
     get progLangSelectOptions(){ return $$(`//select[@id='lang']//option`) };
     get progLangSelect(){ return $(`//select[@id='lang']`) };
     get selectedMessage2(){ return $(`//p[@class='subtitle']`) };
+    get valueSelect(){ return $(`//select[@id='country']`) };
 
     //1. Select by Visible Text
     async selectFruit(option){
@@ -68,6 +69,12 @@ class DropdownPage extends Page {
     async verifySelectedMessage2(option){
         const elmSelectedMessage2 = await this.selectedMessage2;
         await expect(elmSelectedMessage2).toHaveText('You have selected ' + option);
+    }
+
+    //4. Select Using Value
+    async selectByValue(option){
+        const elmValueSelect = await this.valueSelect;
+        await elmValueSelect.selectByAttribute('value', option);
     }
 
 }
