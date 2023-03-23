@@ -4,8 +4,11 @@ import { Key } from 'webdriverio'
 class DropdownPage extends Page {
    
     get fruitsSelect(){ return $(`//select[@id='fruits']`) };
-    get selectedMessage1(){ return $(`(//p[@class='subtitle'])[1]`) };
+    get selectedMessage1(){ return $(`//p[@class='subtitle']`) };
     get heroesSelectOptions(){ return $$(`//select[@id='superheros']//option`) };
+    get progLangSelectOptions(){ return $$(`//select[@id='lang']//option`) };
+    get progLangSelect(){ return $(`//select[@id='lang']`) };
+    get selectedMessage2(){ return $(`//p[@class='subtitle']`) };
 
     //1. Select by Visible Text
     async selectFruit(option){
@@ -47,6 +50,24 @@ class DropdownPage extends Page {
         .up(Key.Ctrl)
         .perform()
         //await browser.pause(5000);
+    }
+
+    //3. Select Last Option
+    async selectLastOption(){
+        const elmProgLangSelectOptions = await this.progLangSelectOptions;
+        const elmProgLangSelect = await this.progLangSelect;
+        //index is length -1 since index count starts at 0 and length count starts at 1
+        await elmProgLangSelect.selectByIndex(elmProgLangSelectOptions.length-1);
+
+        console.log('All Programming Language Options: ');
+        for await (const optionElement of elmProgLangSelectOptions) {
+            console.log(await this.getText(optionElement));
+          }
+    }
+
+    async verifySelectedMessage2(option){
+        const elmSelectedMessage2 = await this.selectedMessage2;
+        await expect(elmSelectedMessage2).toHaveText('You have selected ' + option);
     }
 
 }

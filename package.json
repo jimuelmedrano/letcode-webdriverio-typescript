@@ -15,7 +15,9 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
+    "ciregression": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@regression'",
     "envtest": "env-cmd wdio run ./wdio.conf.ts",
+    "regression": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@regression'",
     "input": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@input'",
     "button": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@button'",
     "dropdown": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dropdown'",

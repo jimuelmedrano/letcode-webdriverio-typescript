@@ -1,6 +1,6 @@
 Feature: Letcode Dropdown Page
 
-    @dropdown
+    @regression @dropdown
     Scenario Outline: As a user, I can select an option using visible text
 
         Given I am on letcode workspace page
@@ -13,7 +13,7 @@ Feature: Letcode Dropdown Page
             | Mango  |
             | Banana |
 
-    @dropdown
+    @regression @dropdown
     Scenario Outline: As a user, I can select multiple options
 
         Given I am on letcode workspace page
@@ -24,3 +24,15 @@ Feature: Letcode Dropdown Page
         Examples:
             | options                           |
             | Spider-Man, Batman, Black Panther |
+
+    @regression @dropdown
+    Scenario Outline: As a user, I can select last option
+
+        Given I am on letcode workspace page
+        When I click dropdown page
+        And I select the last option of third dropdown and print all option
+        Then I should be able to verify that the selected programming language option is <option>
+
+        Examples:
+            | option |
+            | C#     |

@@ -18,3 +18,13 @@ When(/^I get and print all the options of second dropdown$/, async () => {
 Then(/^I should be able to select the following options: (.*)$/, async (options) => {
 	await DropdownPage.selectMultipleOption(options);
 });
+
+//3. Select Last Option
+When(/^I select the last option of third dropdown and print all option$/, async () => {
+	await DropdownPage.selectLastOption();
+});
+
+Then(/^I should be able to verify that the selected programming language option is (.*)$/, async (option) => {
+	await DropdownPage.verifySelectedMessage2(option);
+});
+
