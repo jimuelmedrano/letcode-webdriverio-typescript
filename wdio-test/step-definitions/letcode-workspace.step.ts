@@ -16,3 +16,8 @@ When(/^I click button page$/, async () => {
 When(/^I click dropdown page$/, async () => {
 	await LetcodeWorkspacePage.clickDropdownPage();
 });
+
+When(/^I click alert page$/, async () => {
+	await LetcodeWorkspacePage.clickAlertPage();
+});
+
