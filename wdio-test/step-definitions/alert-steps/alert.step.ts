@@ -9,3 +9,16 @@ When(/^I click the first sample alert$/, async () => {
 Then(/^I should be able to accept the alert$/, async () => {
 	await AlertPage.acceptAlert();
 });
+
+//2. Dismiss and print alert
+When(/^I click the second sample alert$/, async () => {
+	await AlertPage.clickSecondSampleAlertButton();
+});
+
+When(/^I print the alert message$/, async () => {
+	await AlertPage.printAlert();
+});
+
+Then(/^I should be able to dismiss the alert$/, async () => {
+	await AlertPage.dismissAlert();
+});
