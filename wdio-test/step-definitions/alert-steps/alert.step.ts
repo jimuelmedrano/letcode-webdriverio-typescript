@@ -22,3 +22,16 @@ When(/^I print the alert message$/, async () => {
 Then(/^I should be able to dismiss the alert$/, async () => {
 	await AlertPage.dismissAlert();
 });
+
+//3. Input text in alert and accept
+When(/^I click the third sample alert$/, async () => {
+	await AlertPage.clickThirdSampleAlertButton();
+});
+
+When(/^I add text to alert: (.*)$/, async (text) => {
+	await AlertPage.inputAlert(text);
+});
+
+Then(/^I should be able to verify that the alert text is (.*)$/, async (text) => {
+	await AlertPage.verifyPromptAlertMessage(text);
+});
