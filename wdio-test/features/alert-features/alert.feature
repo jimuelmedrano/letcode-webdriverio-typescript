@@ -38,3 +38,16 @@ Feature: Letcode Alert Page
         Examples:
             | text  |
             | Renzo |
+
+    @regression @alert
+    Scenario Outline: As a user, I can click the open sweet alert and print its message
+
+        Given I am on letcode workspace page
+        When I click alert page
+        And I click the last sample alert
+        And I print the sweet alert message
+        Then I should be able to close the sweet alert message
+
+        Examples:
+            | text  |
+            | Renzo |

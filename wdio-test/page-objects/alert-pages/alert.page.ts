@@ -5,7 +5,10 @@ class AlertPage extends Page {
     get firstSampleAlertButton(){ return $(`//button[@id='accept']`) };
     get secondSampleAlertButton(){ return $(`//button[@id='confirm']`) };
     get thirdSampleAlertButton(){ return $(`//button[@id='prompt']`) };
+    get fourthSampleAlertButton(){ return $(`//button[@id='modern']`) };
     get promptAlertMessage(){ return $(`//p[@id='myName']`) };
+    get sweetAlertMessage(){ return $(`//p[@class='title']`) };
+    get sweetAlertClose(){ return $(`//button[@aria-label='close']`) };
 
     //1. Accept Alert
     async clickFirstSampleAlertButton(){
@@ -47,6 +50,22 @@ class AlertPage extends Page {
         await expect(elmPromptAlertMessage).toHaveTextContaining(text);
     }
 
+    //4. Sweet alert
+    async clickFourthSampleAlertButton(){
+        const elmFourthSampleAlertButton = await this.fourthSampleAlertButton;
+        await this.click(elmFourthSampleAlertButton);
+    }
+
+    async printSweetAlert(){
+        const elmSweetAlertMessage = await this.sweetAlertMessage;
+        const sweetAlertText = await this.getText(elmSweetAlertMessage);
+        console.log('Sweet Alert Text: '+ sweetAlertText);
+    }
+
+    async clickCloseSweetAlertButton(){
+        const elmSweetAlertClose = await this.sweetAlertClose;
+        await this.click(elmSweetAlertClose);
+    }
 
 }
 

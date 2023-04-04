@@ -35,3 +35,16 @@ When(/^I add text to alert: (.*)$/, async (text) => {
 Then(/^I should be able to verify that the alert text is (.*)$/, async (text) => {
 	await AlertPage.verifyPromptAlertMessage(text);
 });
+
+//4. Sweet alert
+When(/^I click the last sample alert$/, async () => {
+	await AlertPage.clickFourthSampleAlertButton();
+});
+
+When(/^I print the sweet alert message$/, async () => {
+	await AlertPage.printSweetAlert();
+});
+
+Then(/^I should be able to close the sweet alert message$/, async () => {
+	await AlertPage.clickCloseSweetAlertButton();
+});
