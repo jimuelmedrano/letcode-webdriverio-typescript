@@ -5,7 +5,7 @@ Given(/^I am on letcode workspace page$/, async () => {
 	await LetcodeWorkspacePage.openWorkspacePage();
 });
 
-When(/^I click input edit button$/, async () => {
+When(/^I click input page$/, async () => {
 	await LetcodeWorkspacePage.clickInputEditButton();
 });
 
@@ -21,3 +21,6 @@ When(/^I click alert page$/, async () => {
 	await LetcodeWorkspacePage.clickAlertPage();
 });
 
+When(/^I click frame page$/, async () => {
+	await LetcodeWorkspacePage.clickFramePage();
+});
