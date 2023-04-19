@@ -34,7 +34,7 @@ export default class Page {
 
     async inputText(element: WebdriverIO.Element, text: string){
         //wait for the element to be clickable before interacting
-        await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
+        await element.waitForDisplayed({timeout: parseInt(this.elmTimeout)});
         await element.setValue(text);
     }
 
