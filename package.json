@@ -23,6 +23,7 @@
     "dropdown": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dropdown'",
     "alert": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@alert'",
     "frame": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@frame'",
+    "radio": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@radio'",
     "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
     "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }
