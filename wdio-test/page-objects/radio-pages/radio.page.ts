@@ -8,6 +8,7 @@ class RadioPage extends Page {
     get radioNoBugOption(){ return $(`//input[@id='nobug']`) };
     get radioBugOption(){ return $(`//input[@id='bug']`) };
     get fooBarOptions(){ return $$(`//input[@name='foobar']`) };
+    get disabledOptions(){ return $$(`//input[@id='maybe']`) };
 
     //1. select one radio option
     async selectFirstRadio(){
@@ -70,6 +71,11 @@ class RadioPage extends Page {
                 console.log('Selected Element:'+attr);
             }
           }
+    }
+
+    async verifyRadioDisabled(){
+        const elmDisabledOptions = await this.disabledOptions;
+        await expect(elmDisabledOptions).toBeDisabled();
     }
 
 }

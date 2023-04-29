@@ -36,6 +36,12 @@ When(/^I confirm that both option of the third radio automation challenge is sel
 	await RadioPage.verifyRadioBug();
 });
 
+//4. verify which option is selected
 When(/^I check and print which option is selected$/, async () => {
 	await RadioPage.printSelectedOption();
+});
+
+//5. verify last radio option is disabled
+When(/^I verify that last radio option is disabled$/, async () => {
+	await RadioPage.verifyRadioDisabled();
 });
