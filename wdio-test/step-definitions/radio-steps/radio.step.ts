@@ -36,3 +36,6 @@ When(/^I confirm that both option of the third radio automation challenge is sel
 	await RadioPage.verifyRadioBug();
 });
 
+When(/^I check and print which option is selected$/, async () => {
+	await RadioPage.printSelectedOption();
+});

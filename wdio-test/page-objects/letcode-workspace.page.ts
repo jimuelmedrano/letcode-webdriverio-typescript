@@ -35,11 +35,13 @@ class LetcodeWorkspace extends Page {
 
     async clickFramePage(){
         const elmFramePageButton = await this.framePageButton;
+        await elmFramePageButton.scrollIntoView();
         await this.click(elmFramePageButton);
     }
 
     async clickRadioPage(){
         const elmRadioPageButton = await this.radioPageButton;
+        await elmRadioPageButton.scrollIntoView();
         await this.click(elmRadioPageButton);
     }
 }

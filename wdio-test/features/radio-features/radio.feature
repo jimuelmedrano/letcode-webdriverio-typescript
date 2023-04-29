@@ -37,3 +37,14 @@ Feature: Letcode Radio Page
         Examples:
             |  |
             |  |
+
+    @regression @radio
+    Scenario Outline: As a user, I can verify which option is selected
+
+        Given I am on letcode workspace page
+        When I click radio page
+        And I check and print which option is selected
+        
+        Examples:
+            |  |
+            |  |

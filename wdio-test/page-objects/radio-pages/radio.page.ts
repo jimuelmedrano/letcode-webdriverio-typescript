@@ -7,6 +7,7 @@ class RadioPage extends Page {
     get radioTwoOption(){ return $(`//input[@id='two']`) };
     get radioNoBugOption(){ return $(`//input[@id='nobug']`) };
     get radioBugOption(){ return $(`//input[@id='bug']`) };
+    get fooBarOptions(){ return $$(`//input[@name='foobar']`) };
 
     //1. select one radio option
     async selectFirstRadio(){
@@ -60,6 +61,16 @@ class RadioPage extends Page {
         await expect(elmRadioBugOption).toBeSelected();
     }
 
+    //4. verify which option is selected
+    async printSelectedOption(){
+        const elmFooBarOptions = await this.fooBarOptions;
+        for await (const optionElement of elmFooBarOptions) {
+            if(await optionElement.isSelected()){
+                const attr = await optionElement.getAttribute('id')
+                console.log('Selected Element:'+attr);
+            }
+          }
+    }
 
 }
 
