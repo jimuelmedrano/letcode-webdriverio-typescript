@@ -11,7 +11,7 @@ Feature: Letcode Radio Page
         Examples:
             |  |
             |  |
-
+ 
     @regression @radio
     Scenario Outline: As a user, I can verify that only one radio option can be selected
 
@@ -22,6 +22,18 @@ Feature: Letcode Radio Page
         And I select the second radio of the second radio automation challenge
         And I confirm that the first radio is not selected
 
+        Examples:
+            |  |
+            |  |
+
+    @regression @radio
+    Scenario Outline: As a user, I can verify that the radion options has a bug
+
+        Given I am on letcode workspace page
+        When I click radio page
+        And I select the both radio of the third radio automation challenge
+        And I confirm that both option of the third radio automation challenge is selected
+    
         Examples:
             |  |
             |  |

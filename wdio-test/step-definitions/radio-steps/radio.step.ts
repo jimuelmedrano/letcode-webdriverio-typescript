@@ -26,3 +26,13 @@ When(/^I select the second radio of the second radio automation challenge$/, asy
 When(/^I confirm that the first radio is not selected$/, async () => {
 	await RadioPage.verifyRadioTwo();
 });
+
+//3. verify that radio options has bug
+When(/^I select the both radio of the third radio automation challenge$/, async () => {
+	await RadioPage.selectBothRadioBug();
+});
+
+When(/^I confirm that both option of the third radio automation challenge is selected$/, async () => {
+	await RadioPage.verifyRadioBug();
+});
+
