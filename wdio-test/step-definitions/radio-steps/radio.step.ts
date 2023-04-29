@@ -45,3 +45,8 @@ When(/^I check and print which option is selected$/, async () => {
 When(/^I verify that last radio option is disabled$/, async () => {
 	await RadioPage.verifyRadioDisabled();
 });
+
+//6. verify selected checkbox
+When(/^I verify that checkbox is selected$/, async () => {
+	await RadioPage.verifyRadioDisabled();
+});

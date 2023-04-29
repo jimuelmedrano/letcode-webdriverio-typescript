@@ -9,6 +9,7 @@ class RadioPage extends Page {
     get radioBugOption(){ return $(`//input[@id='bug']`) };
     get fooBarOptions(){ return $$(`//input[@name='foobar']`) };
     get disabledOptions(){ return $$(`//input[@id='maybe']`) };
+    get selectedCheckbox(){ return $$(`//input[@id='maybe']`) };
 
     //1. select one radio option
     async selectFirstRadio(){
@@ -73,11 +74,17 @@ class RadioPage extends Page {
           }
     }
 
+    //5. verify last radio option is disabled
     async verifyRadioDisabled(){
         const elmDisabledOptions = await this.disabledOptions;
         await expect(elmDisabledOptions).toBeDisabled();
     }
 
+    //6. verify selected checkbox
+    async verifyCheckboxSelected(){
+        const elmDisabledOptions = await this.disabledOptions;
+        await expect(elmDisabledOptions).toBeDisabled();
+    }
 }
 
 export default new RadioPage();
