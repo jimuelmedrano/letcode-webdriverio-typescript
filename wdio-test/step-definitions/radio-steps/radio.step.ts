@@ -48,5 +48,10 @@ When(/^I verify that last radio option is disabled$/, async () => {
 
 //6. verify selected checkbox
 When(/^I verify that checkbox is selected$/, async () => {
-	await RadioPage.verifyRadioDisabled();
+	await RadioPage.verifyCheckboxSelected();
+});
+
+//7. accept terms and conditions
+When(/^I click checkbox to accept the terms and conditions$/, async () => {
+	await RadioPage.checkSelectedCheckbox();
 });

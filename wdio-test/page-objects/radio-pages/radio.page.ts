@@ -8,8 +8,9 @@ class RadioPage extends Page {
     get radioNoBugOption(){ return $(`//input[@id='nobug']`) };
     get radioBugOption(){ return $(`//input[@id='bug']`) };
     get fooBarOptions(){ return $$(`//input[@name='foobar']`) };
-    get disabledOptions(){ return $$(`//input[@id='maybe']`) };
-    get selectedCheckbox(){ return $$(`//input[@id='maybe']`) };
+    get disabledOptions(){ return $(`//input[@id='maybe']`) };
+    get selectedCheckbox(){ return $(`//label[normalize-space()='Remember me']//input`) };
+    get agreeToTerms(){ return $(`//label[contains(text(),'I agree')]//input`) };
 
     //1. select one radio option
     async selectFirstRadio(){
@@ -82,8 +83,14 @@ class RadioPage extends Page {
 
     //6. verify selected checkbox
     async verifyCheckboxSelected(){
-        const elmDisabledOptions = await this.disabledOptions;
-        await expect(elmDisabledOptions).toBeDisabled();
+        const elmSelectedCheckbox = await this.selectedCheckbox;
+        await expect(elmSelectedCheckbox).toBeSelected();
+    }
+
+    //7. accept terms and conditions
+    async checkSelectedCheckbox(){
+        const elmAgreeToTerms = await this.agreeToTerms;
+        await this.click(elmAgreeToTerms);
     }
 }
 

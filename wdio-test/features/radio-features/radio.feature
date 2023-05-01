@@ -61,11 +61,22 @@ Feature: Letcode Radio Page
             |  |
 
     @regression @radio
-    Scenario Outline: As a user, I can verify that last option is disabled
+    Scenario Outline: As a user, I can verify that checkbox is selected
 
         Given I am on letcode workspace page
         When I click radio page
         And I verify that checkbox is selected
+        
+        Examples:
+            |  |
+            |  |
+
+    @regression @radio
+    Scenario Outline: As a user, I can accept the terms and conditions
+
+        Given I am on letcode workspace page
+        When I click radio page
+        And I click checkbox to accept the terms and conditions
         
         Examples:
             |  |
