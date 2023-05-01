@@ -7,6 +7,7 @@ class LetcodeWorkspace extends Page {
     get dropdownPageButton(){ return $(`//a[normalize-space()='Drop-Down']`) };
     get alertPageButton(){ return $(`//a[normalize-space()='Dialog']`) };
     get framePageButton(){ return $(`//a[normalize-space()='Inner HTML']`) };
+    get radioPageButton(){ return $(`//a[normalize-space()='Toggle']`) };
 
     async openWorkspacePage () {
         await this.open('/test');
@@ -34,7 +35,14 @@ class LetcodeWorkspace extends Page {
 
     async clickFramePage(){
         const elmFramePageButton = await this.framePageButton;
+        await elmFramePageButton.scrollIntoView();
         await this.click(elmFramePageButton);
+    }
+
+    async clickRadioPage(){
+        const elmRadioPageButton = await this.radioPageButton;
+        await elmRadioPageButton.scrollIntoView();
+        await this.click(elmRadioPageButton);
     }
 }
 
