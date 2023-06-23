@@ -28,3 +28,7 @@ When(/^I click frame page$/, async () => {
 When(/^I click radio page$/, async () => {
 	await LetcodeWorkspacePage.clickRadioPage();
 });
+
+When(/^I click window page$/, async () => {
+	await LetcodeWorkspacePage.clickWindowPage();
+});
