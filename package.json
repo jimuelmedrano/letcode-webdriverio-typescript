@@ -18,6 +18,7 @@
     "ciregression": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@regression'",
     "envtest": "env-cmd wdio run ./wdio.conf.ts",
     "regression": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@regression'",
+    "regression1Instance": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@regression' --maxInstances=1",
     "input": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@input'",
     "button": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@button'",
     "dropdown": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dropdown'",
@@ -25,6 +26,7 @@
     "frame": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@frame'",
     "radio": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@radio'",
     "window": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@window'",
+    "dragdrop": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dragdrop'",
     "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
     "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }

@@ -32,3 +32,7 @@ When(/^I click radio page$/, async () => {
 When(/^I click window page$/, async () => {
 	await LetcodeWorkspacePage.clickWindowPage();
 });
+
+When(/^I click drag and drop page$/, async () => {
+	await LetcodeWorkspacePage.clickDragDropPage();
+});

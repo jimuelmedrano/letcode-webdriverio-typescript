@@ -9,6 +9,7 @@ class LetcodeWorkspace extends Page {
     get framePageButton(){ return $(`//a[normalize-space()='Inner HTML']`) };
     get radioPageButton(){ return $(`//a[normalize-space()='Toggle']`) };
     get windowPageButton(){ return $(`//a[normalize-space()='Tabs']`) };
+    get dragDropPageButton(){ return $(`//a[normalize-space()='AUI - 2']`) };
 
     async openWorkspacePage () {
         await this.open('/test');
@@ -50,6 +51,12 @@ class LetcodeWorkspace extends Page {
         const elmWindowPageButton = await this.windowPageButton;
         await elmWindowPageButton.scrollIntoView();
         await this.click(elmWindowPageButton);
+    }
+
+    async clickDragDropPage(){
+        const elmDragDropPageButton = await this.dragDropPageButton;
+        await elmDragDropPageButton.scrollIntoView();
+        await this.click(elmDragDropPageButton);
     }
 }
 

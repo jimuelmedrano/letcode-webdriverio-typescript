@@ -58,4 +58,15 @@ export default class Page {
         await element.waitForDisplayed({timeout: parseInt(this.elmTimeout)});
         await element.waitForClickable({timeout: parseInt(this.elmTimeout)});
     }
+
+    async dragAndDropElm(draggable: WebdriverIO.Element,droppable: WebdriverIO.Element){
+        //drag and drop the draggable element to droppable element
+        await browser.action('pointer')
+        .move({ duration: 0, origin: draggable})
+        .down({ button: 0 }) // left button
+        .pause(500)
+        .move({ duration: 0, origin: droppable })
+        .up({ button: 0 })
+        .perform()
+    }
 }
