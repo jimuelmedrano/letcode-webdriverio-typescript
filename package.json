@@ -27,6 +27,7 @@
     "radio": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@radio'",
     "window": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@window'",
     "dragdrop": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dragdrop'",
+    "slider": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@slider'",
     "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
     "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }
