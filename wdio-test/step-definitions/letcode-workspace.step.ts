@@ -36,3 +36,7 @@ When(/^I click window page$/, async () => {
 When(/^I click drag and drop page$/, async () => {
 	await LetcodeWorkspacePage.clickDragDropPage();
 });
+
+When(/^I click slider page$/, async () => {
+	await LetcodeWorkspacePage.clickSliderPage();
+});
