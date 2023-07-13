@@ -1,4 +1,4 @@
-import winston from "winston";
+const winston = require('winston');
 
 const resultLogger = winston.createLogger({
     level: 'info',
