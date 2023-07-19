@@ -12,19 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      RUNNER: ${{ secrets.RUNNER }}
-      LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
       HEADLESS: ${{ secrets.HEADLESS }}
       BASE_URL: ${{ secrets.BASE_URL }}
+      ELM_TIMEOUT: ${{ secrets.BASE_URL }}
+      DEBUG: ${{ secrets.DEBUG }}
       ADMIN_USER: ${{ secrets.ADMIN_USER }}
       ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
-      CANDIDATE_USER: ${{ secrets.CANDIDATE_USER }}
-      CANDIDATE_PASS: ${{ secrets.CANDIDATE_PASS }}
-      RANDOM_USER_API_URL: ${{ secrets.RANDOM_USER_API_URL }}
-      RANDOM_USER_API_ENDPOINT: ${{ secrets.RANDOM_USER_API_ENDPOINT }}
-      ELM_TIMEOUT: ${{ secrets.ELM_TIMEOUT }} 
-      CUSTOMER_VIEW_URL: ${{ secrets.CUSTOMER_VIEW_URL }} 
-      RESUME_QUICK_LINK: ${{ secrets.RESUME_QUICK_LINK }}
       GOOGLE_CHAT_WEBHOOK: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
       
     strategy:
