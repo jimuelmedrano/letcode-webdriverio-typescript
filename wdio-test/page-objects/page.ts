@@ -69,4 +69,21 @@ export default class Page {
         .up({ button: 0 })
         .perform()
     }
+
+    randomString(length) {
+        let result           = '';
+        let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        let charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * 
+     charactersLength));
+       }
+       return result;
+    }
+
+    async getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive. ex. random 1-3 is 1 min, max 4
+    }
 }
