@@ -30,6 +30,7 @@
     "window": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@window'",
     "dragdrop": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@dragdrop'",
     "slider": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@slider'",
+    "form": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@form'",
     "sampletag": "env-cmd wdio run ./wdio.conf.ts --cucumberOpts.tagExpression='@sampletag'",
     "test-typescript": "env-cmd npx ts-node typescript-test.ts"
   }
