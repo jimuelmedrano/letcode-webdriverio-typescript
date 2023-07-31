@@ -84,6 +84,7 @@ export default class Page {
     async getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive. ex. random 1-3 is 1 min, max 4
+        //The maximum is exclusive and the minimum is inclusive. ex. random 1-3 is 1 min, max 4
+        return Math.floor(Math.random() * (max - min) + min); 
     }
 }

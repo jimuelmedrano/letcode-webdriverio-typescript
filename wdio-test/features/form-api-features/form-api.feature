@@ -1,7 +1,7 @@
 Feature: Letcode Form Page
 
     @regression @form
-    Scenario Outline: As a user, I can select an option using visible text
+    Scenario Outline: As a user, I can complete the form using API data
 
         Given I am on letcode workspace page
         When I click form page
