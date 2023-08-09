@@ -1,8 +1,11 @@
 import type { Options } from '@wdio/types'
+import { readFileSync,truncateSync } from 'fs';
+import logger from './helper/logger.js';
 
 const BASE_URL = ("" + process.env.BASE_URL).toLowerCase().trim() ?? 'N';
 const HEADLESS = ("" + process.env.HEADLESS).toUpperCase() ?? 'N';
 const DEBUG = ("" + process.env.DEBUG).toUpperCase() ?? 'N';
+let startTime = new Date().getTime();
 
 export const config: Options.Testrunner = {
     //
@@ -203,8 +206,10 @@ export const config: Options.Testrunner = {
      * @param {Object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+    onPrepare: function (config, capabilities) {
+        //Get the starting time of test execution
+        startTime = new Date().getTime();
+    },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -300,8 +305,12 @@ export const config: Options.Testrunner = {
      * @param {number}                 result.duration  duration of scenario in milliseconds
      * @param {Object}                 context          Cucumber World object
      */
-    // afterScenario: function (world, result, context) {
-    // },
+    afterScenario: function (world, result, context) {
+        if(result.error){
+            // @ts-ignore
+            resultLogger.resultErrorLogger.info(context.testId);
+        }
+    },
     /**
      *
      * Runs after a Cucumber Feature.
@@ -345,8 +354,40 @@ export const config: Options.Testrunner = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+    onComplete: function(exitCode, config, capabilities, results) {
+        const totalRun = results.passed + results.failed
+        const duration = new Date().getTime() - startTime;
+        const totalDuration = new Date(duration).toISOString().slice(11, 19);
+
+        //for webhook
+        /*let logData = ''
+        if(exitCode==0){
+            logData = '<br>'+'<b>Test Result: <font color="#2cbe4e">SUCCESS</font></b>';
+        }else{
+            logData = '<br>'+'<b>Test Result: <font color="#ff0000">FAILED</font></b>';
+        }
+    
+        if(results.failed == totalRun){
+           truncateSync('./logs/resultsErrors.log');
+           logData = logData + '<br>' + 'All scenario failed. Check logs for more details.'
+        }else{
+            logData = logData+ '<br>'+'Total Test Cases: '+ totalRun + 
+            '<br>' + 'Passed: '+ results.passed + 
+            '<br>' + 'Failed: ' + results.failed+ 
+            '<br>' + '<b>Duration: ' + totalDuration+'</b>'
+        }
+        logger.resultLogger.info(logData)
+        const file = readFileSync('./logs/results.log', 'utf-8');
+        console.log(file)*/
+
+        let logData = '-------------------------\n'
+        logData += 'Total Test Cases: '+ totalRun + '\n'
+                + 'Passed: '+ results.passed + '\n' 
+                + 'Failed: ' + results.failed + '\n' 
+                + 'Duration: ' + totalDuration
+        logger.resultLogger.info(logData)
+        console.log(logData)
+    },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session
