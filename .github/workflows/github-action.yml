@@ -16,8 +16,8 @@ jobs:
       BASE_URL: ${{ secrets.BASE_URL }}
       ELM_TIMEOUT: ${{ secrets.BASE_URL }}
       DEBUG: ${{ secrets.DEBUG }}
-      RANDOM_USER_API_URL: ${{ secrets.ADMIN_USER }}
-      RANDOM_USER_API_ENDPOINT: ${{ secrets.ADMIN_PASS }}
+      RANDOM_USER_API_URL: ${{ secrets.RANDOM_USER_API_URL }}
+      RANDOM_USER_API_ENDPOINT: ${{ secrets.RANDOM_USER_API_ENDPOINT }}
       #GOOGLE_CHAT_WEBHOOK: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
       
     strategy:
