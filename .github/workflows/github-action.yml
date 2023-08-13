@@ -1,4 +1,4 @@
-name: Staging Smoke Test
+name: Letcode WDIO Regression
 
 on:
   # schedule:
@@ -76,7 +76,7 @@ jobs:
         
     - name: Run WDIO Test
       if: always()
-      run: npm run regression
+      run: npm run ciregression
     
     # - name: "Import results to Xray"
     #   if: always()
