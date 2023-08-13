@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    environment: stage
+    environment: main
     runs-on: ubuntu-latest
     
     env:
@@ -16,18 +16,18 @@ jobs:
       BASE_URL: ${{ secrets.BASE_URL }}
       ELM_TIMEOUT: ${{ secrets.BASE_URL }}
       DEBUG: ${{ secrets.DEBUG }}
-      ADMIN_USER: ${{ secrets.ADMIN_USER }}
-      ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
-      GOOGLE_CHAT_WEBHOOK: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+      RANDOM_USER_API_URL: ${{ secrets.ADMIN_USER }}
+      RANDOM_USER_API_ENDPOINT: ${{ secrets.ADMIN_PASS }}
+      #GOOGLE_CHAT_WEBHOOK: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
       
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
     - uses: actions/checkout@v3
       with:
-        ref: staging
+        ref: main
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -45,9 +45,9 @@ jobs:
     #     creds: '${{ secrets.AZURE_APP_CREDENTIALS }}'
     #     enable-AzPSSession: true
         
-    - name: Public IP
-      id: ip
-      uses: haythem/public-ip@v1.3
+    # - name: Public IP
+    #   id: ip
+    #   uses: haythem/public-ip@v1.3
       
     # - name: 'Allow Github Runner IpAddress'
     #   uses: azure/CLI@v1
@@ -56,10 +56,10 @@ jobs:
     #       az webapp config access-restriction add -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruit-Staging --rule-name GitHub_Runner --action Allow --ip-address ${{ steps.ip.outputs.ipv4 }} --priority 100
     #       az webapp config access-restriction add -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruitWeb-staging --rule-name GitHub_Runner --action Allow --ip-address ${{ steps.ip.outputs.ipv4 }} --priority 100
 
-    - name: Sleep for 30 seconds
-      if: always()
-      run: sleep 30s
-      shell: bash
+    # - name: Sleep for 30 seconds
+    #   if: always()
+    #   run: sleep 30s
+    #   shell: bash
 
     # - name: Authenticate to Xray/Jira
     #   if: always()
@@ -76,7 +76,7 @@ jobs:
         
     - name: Run WDIO Test
       if: always()
-      run: npm run test:smoke
+      run: npm run regression
     
     # - name: "Import results to Xray"
     #   if: always()
@@ -89,9 +89,9 @@ jobs:
     #     projectKey: ${{ secrets.JIRA_PROJECT_KEY }}
     #     testMerge: true
 
-    - name: Send Webhook
-      if: always()
-      run: npm run stagingWebhook
+    # - name: Send Webhook
+    #   if: always()
+    #   run: npm run stagingWebhook
 
     # - name: 'Remove Github Runner IpAddress'
     #   if: always()
