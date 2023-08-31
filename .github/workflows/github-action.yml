@@ -43,6 +43,3 @@ jobs:
       if: always()
       run: npm run ciregression
     
-
-    #       az webapp config access-restriction remove -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruit-Staging --rule-name GitHub_Runner
-    #       az webapp config access-restriction remove -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruitWeb-staging --rule-name GitHub_Runner
