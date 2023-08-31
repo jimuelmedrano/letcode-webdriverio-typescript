@@ -38,65 +38,11 @@ jobs:
     - name: Update Chromedriver
       if: always()
       run: npm uninstall chromedriver && npm install chromedriver@latest
-    
-    # - name: Log in with Azure
-    #   uses: azure/login@v1
-    #   with:
-    #     creds: '${{ secrets.AZURE_APP_CREDENTIALS }}'
-    #     enable-AzPSSession: true
-        
-    # - name: Public IP
-    #   id: ip
-    #   uses: haythem/public-ip@v1.3
-      
-    # - name: 'Allow Github Runner IpAddress'
-    #   uses: azure/CLI@v1
-    #   with:
-    #     inlineScript: |
-    #       az webapp config access-restriction add -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruit-Staging --rule-name GitHub_Runner --action Allow --ip-address ${{ steps.ip.outputs.ipv4 }} --priority 100
-    #       az webapp config access-restriction add -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruitWeb-staging --rule-name GitHub_Runner --action Allow --ip-address ${{ steps.ip.outputs.ipv4 }} --priority 100
-
-    # - name: Sleep for 30 seconds
-    #   if: always()
-    #   run: sleep 30s
-    #   shell: bash
-
-    # - name: Authenticate to Xray/Jira
-    #   if: always()
-    #   run: |
-    #     cat config/xray_auth.json.example  | sed s/CLIENT_ID/${{ secrets.XRAY_CLIENT_ID }}/g | sed s/CLIENT_SECRET/${{ secrets.XRAY_CLIENT_SECRET }}/g > config/xray_auth.json
-    #     echo token=$(curl -H "Content-Type: application/json" -X POST --data @"config/xray_auth.json" ${{ secrets.XRAY_BASE_URL }}/api/v2/authenticate| tr -d '"') >> $GITHUB_ENV
-    
-    # - name: Import Features to XRAY
-    #   if: always()
-    #   run: |
-    #     zip -r data/features.zip test/ -i \**/**/*.feature
-    #     curl -H "Content-Type: multipart/form-data" -H "Authorization: Bearer ${{ env.token }}" -F "file=@data/features.zip" "${{ secrets.XRAY_BASE_URL }}/api/v2/import/feature?projectKey=${{ secrets.JIRA_PROJECT_KEY }}"
-    #     rm data/features.zip
         
     - name: Run WDIO Test
       if: always()
       run: npm run ciregression
     
-    # - name: "Import results to Xray"
-    #   if: always()
-    #   uses: mikepenz/xray-action@v2
-    #   with:
-    #     username: ${{ secrets.XRAY_CLIENT_ID }}
-    #     password: ${{ secrets.XRAY_CLIENT_SECRET }}
-    #     testFormat: "cucumber"
-    #     testPaths: "**/results/cucumber/*.json"
-    #     projectKey: ${{ secrets.JIRA_PROJECT_KEY }}
-    #     testMerge: true
 
-    # - name: Send Webhook
-    #   if: always()
-    #   run: npm run stagingWebhook
-
-    # - name: 'Remove Github Runner IpAddress'
-    #   if: always()
-    #   uses: azure/CLI@v1
-    #   with:
-    #     inlineScript: |
     #       az webapp config access-restriction remove -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruit-Staging --rule-name GitHub_Runner
     #       az webapp config access-restriction remove -g ${{ secrets.AZURE_APP_RESOURCE_GROUP_NAME }} -n CSRecruitWeb-staging --rule-name GitHub_Runner
