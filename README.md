@@ -32,7 +32,7 @@ This project was made for educational and portfolio use. Letcode website was use
 
 ### Built Using:
 
-* [![tested with webdriver.io](https://img.shields.io/badge/tested%20with-webdriver.io-%23ea5906)](https://webdriver.io/)
+* [![tested with webdriver.io](https://img.shields.io/badge/WebdriverIO-EA5906.svg?style=for-the-badge&logo=WebdriverIO&logoColor=white)](https://webdriver.io/)
 * [![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 * [![cucumber](https://img.shields.io/badge/Cucumber-43B02A?style=for-the-badge&logo=cucumber&logoColor=white)](https://cucumber.io/)
 * [![nodejs](https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/en)
@@ -79,6 +79,7 @@ You can run the script using the following commands:
   ```
 ## Sample Run
 
+[<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/42688255/266182473-9b7633de-7302-4ec2-b522-5c3da1c8b57d.png" width="50%">](https://www.youtube.com/watch?v=Q8-iS_Jps-U)
 
 <!-- CONTACT -->
 ## Contact
